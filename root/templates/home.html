@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Full-width hero section -->
+<section class="hero">
+<!-- Headers -->
+    <div class="section-normal">
+        <h1 class="main-title">Compliance Starts with Knowledge</h1>
+        <p class="subtitle">Introducing the Compliance Checker</p>
+    </div>
+
+    <div class="section-normal">
+        <div class="quote-section">
+            <div class="quote-line"></div>
+            <p class="quote-text">
+                An <strong>interactive dashboard</strong> compiling <strong>non-compliant case-studies</strong> monitoring the <strong>real-time impact</strong> of commodity production.
+            </p>
+            <div class="quote-line"></div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <p>Scroll for more</p>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
+    <div class="scroll-indicator">
+        <p>Scroll for more</p>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
+
+        
+    </div>
+
+</section>
+
+
+<section class="section-narrow">
+    <h1 class="section-title-main">Case Studies</h1>
+    <p class="section-subtitle">with aggregated local investigative research and non-biased evidence on:</p>
+</section>
+
+<!-- Update the circle items structure -->
+<div class="circles-container">
+    <div class="circle-item">
+        <div class="circle-title">Deforestation</div>
+        <div class="circle-inner">
+            <div class="circle-content">
+                <ul>
+                    <li>High-resolution satellite imagery to detect deforestation & land-use change.</li>
+                    <li>Mapped farm boundaries</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Repeat the same structure for other circles -->
+    <div class="circle-item">
+        <div class="circle-title"> Legal Violations</div>
+        <div class="circle-inner">
+            <div class="circle-content">
+                <p>Flagging potential environmental and (child) labour compliance issues.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="circle-item" >
+        <div class="circle-title">Traders and Operators </div>
+        <div class="circle-inner">
+            <div class="circle-content">
+                <p>Linking farms to companies and downstream supply-chain actors.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+
+        <p class="section-subtitle gallery-main-title">See data previews of: </p>
+
+
+    <div class="gallery-container">
+        <div class="gallery-item">
+            <h3 class="gallery-title">Case studies</h3>
+            <div class="image-container">
+                <img src="{{ url_for('static', filename='images/gallery/ex_page_case_studies.png') }}" 
+                    alt="Dashboard" 
+                    class="gallery-image">
+            </div>
+            <p class="gallery-description">Interactive overview of non-compliant case studies</p>
+        </div>
+        
+        <div class="gallery-item">
+            <h3 class="gallery-title">Company profiles</h3>
+            <div class="image-container">
+            <img src="{{ url_for('static', filename='images/gallery/ex_page_company.png') }}" 
+                 alt="Case Studies" 
+                 class="gallery-image">
+            </div>
+            
+            <p class="gallery-description">their assets, commodity imports/exports, the weak spots in their sustainability commitments.</p>
+        </div>
+        
+        <div class="gallery-item">
+            <h3 class="gallery-title">Commodity trade data</h3>
+            <div class="image-container">
+            <img src="{{ url_for('static', filename='images/gallery/ex_page_commodity_Coffee.png') }}" 
+                 alt="Supply Chain" 
+                 class="gallery-image">
+                </div>
+            
+            <p class="gallery-description">Up-to-date data on commodity producers and flows to the EU27 </p>
+        </div>
+        
+        <div class="gallery-item">
+            <h3 class="gallery-title">Country trade data </h3>
+            <div class="image-container">
+            <img src="{{ url_for('static', filename='images/gallery/ex_page_country_Germany.png') }}" 
+                 alt="Risk Analysis" 
+                 class="gallery-image">
+            </div>
+            
+            <p class="gallery-description">Up-to-date data on export to and import of EU27 countries</p>
+        </div>
+        
+        <div class="gallery-item">
+            <h3 class="gallery-title">Shipment data</h3>
+            <div class="image-container">
+            <img src="{{ url_for('static', filename='images/gallery/ex_page_shipment.png') }}" 
+                 alt="Reports" 
+                 class="gallery-image">
+            </div>
+            
+            <p class="gallery-description">Analyzed shipment data per country and company, demonstrating which commodities companies and their subsidiaries import. </p>
+        </div>
+    </div>
+</section>
+
+<!-- Modal for enlarged images -->
+<div id="imageModal" class="modal">
+    <div class="modal-content">
+        <img id="modalImage">
+    </div>
+</div>
+
+
+<!-- Narrow-width content section -->
+<section class="section-narrow">
+    <h2>Get in contact with our experts</h2>
+    <a href="/contact" class="contact-image-link">
+        <img src="{{ url_for('static', filename='images/general/talking_experts.jpg') }}" 
+             alt="Contact our experts" 
+             class="contact-image">
+    </a>
+
+</section>
+
+
+
+<script>
+document.querySelector('.scroll-indicator').addEventListener('click', function() {
+    window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+    });
+});
+// Get the modal
+var modal = document.getElementById("imageModal");
+var modalImg = document.getElementById("modalImage");
+
+// Get all gallery images
+var images = document.getElementsByClassName("gallery-image");
+
+// Add click event to all gallery images
+for (var i = 0; i < images.length; i++) {
+    images[i].onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        // Prevent body scrolling when modal is open
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Close modal when clicking anywhere
+modal.onclick = function() {
+    modal.style.display = "none";
+    // Re-enable body scrolling
+    document.body.style.overflow = 'auto';
+}
+
+// Prevent modal from closing when clicking the image itself
+modalImg.onclick = function(event) {
+    event.stopPropagation();
+}
+</script>
+{% endblock %}
+
