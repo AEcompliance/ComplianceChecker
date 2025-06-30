@@ -1,23 +1,12 @@
-function handleSubmit(event) {
-    event.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
+window.onload = function () {
+    const anchor = document.getElementById("flash-message-anchor");
+    if (anchor && anchor.innerText.trim().length > 0) {
+        const elementTop = anchor.getBoundingClientRect().top + window.pageYOffset;
+        const elementHeight = anchor.offsetHeight;
+        const viewportHeight = window.innerHeight;
 
-    // Here you would typically send the data to your server
-    // For now, we'll just log it and show a success message
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    alert('Thank you for your message! We will get back to you soon.');
-    
-    // Clear the form
-    event.target.reset();
-    
-    return false;
-}
+        // Scroll so the message is centered in the viewport
+        const scrollTo = elementTop - (viewportHeight / 2) + (elementHeight / 2);
+        window.scrollTo({ top: scrollTo, behavior: 'smooth' });
+    }
+};
