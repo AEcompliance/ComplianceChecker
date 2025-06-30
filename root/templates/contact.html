@@ -44,17 +44,31 @@
                 </div>
 
                 <!-- Add success/error message display -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            <div class="alert alert-{{ category }}">{{ message }}</div>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
+                 <div id="flash-message-anchor">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }}">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
 
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
         </div>
     </div>
+
+
+<script>
+    // Scroll to flash message after form submit
+    window.onload = function () {
+        const anchor = document.getElementById("flash-message-anchor");
+        if (anchor && anchor.innerText.trim().length > 0) {
+            anchor.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+</script>
+
 </section>
 {% endblock %}
