@@ -106,8 +106,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .section-normal {
     max-width: var(--content-width-normal);
-    margin: var(--spacing-md) auto;
-    padding: var(--spacing-md);
+    margin: var(--spacing-sm) auto;
+    padding: var(--spacing-sm);
 }
 
 .section-narrow {
@@ -152,9 +152,12 @@ h1, h2, h3, h4, h5, h6 {
     .subtitle {
         font-size: 1.25rem;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        margin-bottom: var(--spacing-md)
+        margin-bottom: var(--spacing-sm);
     }
 
+    .section-normal .main-title {
+        padding-top: 2rem;
+    }
 
 /* Quote Section */
 .quote-section {
@@ -494,12 +497,13 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     display: flex;
     align-items:center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
 }
 
 .logo img {
     height: auto;
     width: 200px;
+    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
 }
 
 /* navigation menu */
