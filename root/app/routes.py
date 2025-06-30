@@ -42,31 +42,16 @@ def send_email():
         {message_text}
         """
 
-        try:
-            # Try SendGrid first
-            if os.getenv('SENDGRID_API_KEY'):
-                message = SendGridMail(
-                    from_email=os.getenv('MAIL_DEFAULT_SENDER'),
-                    to_emails='info@compliance-checker.org',
-                    subject=f'Contact Form: {subject}',
-                    plain_text_content=email_content
-                )
-                sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
-                sg.send(message)
-            else:
-                # Fallback to Flask-Mail
-                msg = Message(
-                    subject=f'Contact Form: {subject}',
-                    recipients=['info@compliance-checker.org'],
-                    body=email_content
-                )
-                mail.send(msg)
-
-            flash('Your message has been sent successfully!', 'success')
-            
-        except Exception as e:
-            print(f"Email sending error: {str(e)}")
-            raise
+        message = SendGridMail(
+            from_email=os.getenv('MAIL_DEFAULT_SENDER'),
+            to_emails='info@compliance-checker.org',
+            subject=f'Contact Form: {subject}',
+            plain_text_content=email_content
+        )
+        sg = SendGridAPIClient(os.getenv('SENDGRID_API_KEY'))
+        sg.send(message)
+         
+        flash('Your message has been sent successfully!', 'success')
 
     except Exception as e:
         flash('There was an error sending your message. Please try again or send an e-mail to info@compliance-checker.org', 'error')
