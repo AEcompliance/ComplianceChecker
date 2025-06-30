@@ -497,12 +497,13 @@ h1, h2, h3, h4, h5, h6 {
 .logo {
     display: flex;
     align-items:center;
-    padding: var(--spacing-md);
+    padding: var(--spacing-md) var(--spacing-sm);
 }
 
 .logo img {
     height: auto;
     width: 200px;
+    padding: var(--spacing-md) var(--spacing-sm) var(--spacing-sm);
 }
 
 /* navigation menu */
