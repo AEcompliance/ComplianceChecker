@@ -6,13 +6,13 @@
 <!-- Headers -->
     <div class="section-normal">
         <h1 class="main-title">Compliance Starts with Knowledge</h1>
-        <p class="subtitle">Introducing the Compliance Checker</p>
     </div>
 
     <div class="section-normal">
         <div class="quote-section">
             <div class="quote-line"></div>
             <p class="quote-text">
+                The Compliance Checker is <br><br>
                 An <strong>interactive dashboard</strong> compiling <strong>non-compliant case-studies</strong> monitoring the <strong>real-time impact</strong> of commodity production.
             </p>
             <div class="quote-line"></div>
@@ -38,7 +38,7 @@
 
 <section class="section-narrow">
     <h1 class="section-title-main">Case Studies</h1>
-    <p class="section-subtitle">with aggregated local investigative research and non-biased evidence on:</p>
+    <p class="section-subtitle">Are powered by aggregated local investigative research and non-biased evidence.</p>
 </section>
 
 <!-- Update the circle items structure -->
@@ -47,10 +47,7 @@
         <div class="circle-title">Deforestation</div>
         <div class="circle-inner">
             <div class="circle-content">
-                <ul>
-                    <li>High-resolution satellite imagery to detect deforestation & land-use change.</li>
-                    <li>Mapped farm boundaries</li>
-                </ul>
+                <p>High-resolution satellite imagery and mapped farm boundaries detect deforestation & land-use change.</p>
             </div>
         </div>
     </div>
@@ -60,7 +57,7 @@
         <div class="circle-title"> Legal Violations</div>
         <div class="circle-inner">
             <div class="circle-content">
-                <p>Flagging potential environmental and (child) labour compliance issues.</p>
+                <p>Data flags potential environmental and (child) labour compliance issues.</p>
             </div>
         </div>
     </div>
@@ -69,7 +66,7 @@
         <div class="circle-title">Traders and Operators </div>
         <div class="circle-inner">
             <div class="circle-content">
-                <p>Linking farms to companies and downstream supply-chain actors.</p>
+                <p>Information links farms to companies and downstream supply-chain actors.</p>
             </div>
         </div>
     </div>
@@ -100,7 +97,7 @@
                  class="gallery-image">
             </div>
             
-            <p class="gallery-description">their assets, commodity imports/exports, the weak spots in their sustainability commitments.</p>
+            <p class="gallery-description">Assets, commodity imports/exports, weak spots in company sustainability commitments</p>
         </div>
         
         <div class="gallery-item">
@@ -111,7 +108,7 @@
                  class="gallery-image">
                 </div>
             
-            <p class="gallery-description">Up-to-date data on commodity producers and flows to the EU27 </p>
+            <p class="gallery-description">Up-to-date data on commodity producers and flows to the EU Member states (EU27) </p>
         </div>
         
         <div class="gallery-item">
@@ -133,7 +130,7 @@
                  class="gallery-image">
             </div>
             
-            <p class="gallery-description">Analyzed shipment data per country and company, demonstrating which commodities companies and their subsidiaries import. </p>
+            <p class="gallery-description">Shipment data analysed per country and company, demonstrating which commodities companies and their subsidiaries import </p>
         </div>
     </div>
 </section>
@@ -149,6 +146,7 @@
 <!-- Narrow-width content section -->
 <section class="section-narrow">
     <h2>Get in contact with our experts</h2>
+    <p class="gallery-main-title">Our team of researchers is happy to get in touch with you about how we can help. </p>
     <a href="/contact" class="contact-image-link">
         <img src="{{ url_for('static', filename='images/general/experts.jpg') }}" 
              alt="Contact our experts" 
@@ -156,44 +154,8 @@
     </a>
 
 </section>
-
-
-
-<script>
-document.querySelector('.scroll-indicator').addEventListener('click', function() {
-    window.scrollTo({
-        top: window.innerHeight,
-        behavior: 'smooth'
-    });
-});
-// Get the modal
-var modal = document.getElementById("imageModal");
-var modalImg = document.getElementById("modalImage");
-
-// Get all gallery images
-var images = document.getElementsByClassName("gallery-image");
-
-// Add click event to all gallery images
-for (var i = 0; i < images.length; i++) {
-    images[i].onclick = function() {
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        // Prevent body scrolling when modal is open
-        document.body.style.overflow = 'hidden';
-    }
-}
-
-// Close modal when clicking anywhere
-modal.onclick = function() {
-    modal.style.display = "none";
-    // Re-enable body scrolling
-    document.body.style.overflow = 'auto';
-}
-
-// Prevent modal from closing when clicking the image itself
-modalImg.onclick = function(event) {
-    event.stopPropagation();
-}
-</script>
 {% endblock %}
 
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/home.js') }}"></script>
+{% endblock %}

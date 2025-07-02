@@ -290,7 +290,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Image Gallery Section */
 .gallery-section {
-    background-color: #f5f4f3;section-title-main;
+    background-color: #f5f4f3;
     padding: var(--spacing-lg) 0 var(--spacing-md) 0;
     position: relative;
 }
