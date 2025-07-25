@@ -1,3 +1,31 @@
+// Add this at the beginning of the file
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle scroll indicator click
+    document.querySelector('.scroll-indicator').addEventListener('click', function() {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+        });
+    });
+
+    // Handle contact link clicks
+    const contactLinks = document.querySelectorAll('a[href="/#contact"]');
+    contactLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const contactSection = document.getElementById('contact');
+            if (contactSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const contactPosition = contactSection.offsetTop - headerHeight;
+                window.scrollTo({
+                    top: contactPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+
 document.querySelector('.scroll-indicator').addEventListener('click', function() {
     window.scrollTo({
         top: window.innerHeight,

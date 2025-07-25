@@ -479,6 +479,8 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
+
+
 /* Footer */
 .footer {
     height: var(--footer-height);
@@ -720,6 +722,61 @@ footer > p {
     top: 0;
 }
 
+/* Email link */
+.email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    padding: 15px 30px;
+    background: var(--ae-sun-dark);
+    color: var(--ae-darkblue) !important;
+    border-radius: 50px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.email-link:hover {
+    transform: translateY(-3px);
+    background: var(--ae-sun);
+    box-shadow: 0 5px 15px rgba(239, 181, 23, 0.4);
+}
+
+.email-link i {
+    transition: transform 0.5s ease;
+}
+
+.email-link:hover i {
+    animation: flyEnvelope 1s ease infinite;
+}
+
+@keyframes flyEnvelope {
+    0% {
+        transform: translateX(0) rotate(0);
+    }
+    25% {
+        transform: translateX(-3px) rotate(-5deg);
+    }
+    75% {
+        transform: translateX(3px) rotate(5deg);
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+    }
+}
+
+p a {
+        color: var(--ae-darkblue);
+        text-decoration: none;
+}
+
+p a:hover{
+    color: var(--ae-lightgreen);
+    
+}
 
 
 /* Media query for mobile responsiveness */
