@@ -144,14 +144,17 @@
 
 
 <!-- Narrow-width content section -->
-<section class="section-narrow">
+<section id="contact" class="section-narrow">
     <h2>Get in contact with our experts</h2>
-    <p class="gallery-main-title">Our team of researchers is happy to get in touch with you about how we can help. <br> Click the image below to go to our contact form. </p>
-    <a href="/contact" class="contact-image-link">
+    <p class="gallery-main-title">Our team of researchers is happy to get in touch with you about how we can help. <br>
+        <br><br> Send us an email at <br> <a href="mailto:info@compliance-checker.org" class="email-link">
+        <i class="fas fa-envelope"></i>
+        info@compliance-checker.org
+    </a><br><br> </p>
         <img src="{{ url_for('static', filename='images/general/cc_team_collage.png') }}" 
              alt="Contact our experts" 
              class="contact-image">
-    </a>
+    
 
 </section>
 {% endblock %}
