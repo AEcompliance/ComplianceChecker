@@ -1010,6 +1010,25 @@ p a:hover{
     color: #dc3545;
     border: 1px solid #dc3545;
 }
+.page-overlay {
+    position: fixed;       /* stay fixed when scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;  /* allow clicks through overlay */
+    z-index: 9999;         /* make sure it’s on top */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-overlay img {
+    width: 100%;          /* stretch across screen */
+    height: 100%;         
+    object-fit: cover;    /* scale nicely */
+    opacity: 0.9;         /* optional: make slightly transparent */
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
